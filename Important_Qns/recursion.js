@@ -40,4 +40,27 @@ const isPalindrome = (x) => {
   return isPalindrome(str.substring(1, str.length - 1));
 };
 
-console.log(isPalindrome(121)); // Output: true
+// console.log(isPalindrome(121)); // Output: true
+
+// Fibonaci
+// F(n) = F(n-1) + F(n-2)
+
+const fibonacci = (n) => {
+  if (n <= 1) {
+    return n;
+  } else if (n > 1) {
+    return fibonacci(n - 1) + fibonacci(n - 2);
+  }
+};
+
+// console.log(fibonacci(10));
+
+// "hello" ===> "olleh"
+
+const reverseString = (str) => {
+  if (str === '') {
+    return '';
+  } else return reverseString(str.substr(1) + str.charAt(0));
+};
+
+console.log(reverseString('hello'));
