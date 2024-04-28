@@ -44,8 +44,8 @@ const maxSlidingWindow = (nums, k) => {
   let dequeue = [];
 
   for (let i = 0; i < nums.length; i++) {
-    if (dequeue > 0 && dequeue[0] <= i - k) dequeue.shift();
-    while (dequeue.length > 0 && dequeue[dequeue.length - 1] < nums[i]) {
+    if (dequeue.length > 0 && dequeue[0] <= i - k) dequeue.shift();
+    while (dequeue.length > 0 && nums[dequeue[dequeue.length - 1]] <= nums[i]) {
       dequeue.pop();
     }
     dequeue.push(i);
@@ -101,4 +101,22 @@ console.log(maxSlidingWindow([1, 3, -1, -3, 5, 3, 6, 7], 3));
   Final Result
   The function returns the final result array, which is [3, 3, 5, 5, 6, 7], representing the maximum values in each sliding window.
 
+*/
+
+/* 
+  Initialization:
+    result: An empty array initialized to store the maximum values from each window.
+    deque: An empty deque (double-ended queue) initialized to keep track of the indices of elements within the current window.
+  Iteration and Deque Manipulation:
+    Iterate through each element in the array using a loop (for (let i = 0; i < nums.length; i++)).
+  Manage deque:
+    Front removal: Remove indices from the front of the deque that are outside the current window (i - k).
+    Back removal: Remove indices from the back of the deque that point to elements less than the current element (nums[i]).
+    Add current index: Add the current index i to the deque.
+  Result updating:
+    Once the window is established (i >= k - 1), add the maximum element of the current window (nums[deque[0]]) to result.
+  Iterative Steps:
+    The explanation for each iteration is helpful in showing how the function behaves in specific cases. You can emphasize the core actions in each iteration: updating the deque to maintain the window and adding the maximum value to result.
+  Final Result:
+    The function returns the result array containing the maximum values in each sliding window.
 */
