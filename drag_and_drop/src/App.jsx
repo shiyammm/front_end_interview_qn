@@ -1,5 +1,8 @@
 import React, { useState } from 'react';
 import Notes from './components/Notes';
+import Form from './components/Form';
+import DateAndTime from './components/DateAndTime';
+import Cursor from './components/Cursor';
 
 const App = () => {
   const [notes, setNotes] = useState([
@@ -13,8 +16,11 @@ const App = () => {
     },
   ]);
   return (
-    <div>
-      <Notes notes={notes} setNotes={setNotes} />
+    <div className="app">
+      {/* <Notes notes={notes} setNotes={setNotes} /> */}
+      <Form />
+      <DateAndTime />
+      <Cursor />
     </div>
   );
 };
